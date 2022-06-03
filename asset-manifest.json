@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/react-module-02-ivents-and-states/static/css/main.3d71749b.css",
-    "main.js": "/react-module-02-ivents-and-states/static/js/main.b47e6204.js",
-    "index.html": "/react-module-02-ivents-and-states/index.html",
-    "main.3d71749b.css.map": "/react-module-02-ivents-and-states/static/css/main.3d71749b.css.map",
-    "main.b47e6204.js.map": "/react-module-02-ivents-and-states/static/js/main.b47e6204.js.map"
+    "main.css": "/react-module-02-collection-of-notes/static/css/main.3d71749b.css",
+    "main.js": "/react-module-02-collection-of-notes/static/js/main.b47e6204.js",
+    "index.html": "/react-module-02-collection-of-notes/index.html",
+    "main.3d71749b.css.map": "/react-module-02-collection-of-notes/static/css/main.3d71749b.css.map",
+    "main.b47e6204.js.map": "/react-module-02-collection-of-notes/static/js/main.b47e6204.js.map"
   },
   "entrypoints": [
     "static/css/main.3d71749b.css",
