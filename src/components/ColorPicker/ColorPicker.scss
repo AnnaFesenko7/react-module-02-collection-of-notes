@@ -1,3 +1,5 @@
+@import 'src/styles/shared.scss';
+
 .ColorPicker {
   padding: 10px;
 }
@@ -14,6 +16,5 @@
   cursor: pointer;
 }
 .ColorPickerActive {
-  composes: ColorPickerOption;
   transform: scale(1.2);
 }

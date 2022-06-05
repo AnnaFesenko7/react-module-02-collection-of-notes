@@ -1,4 +1,7 @@
-import s from './ColorPicker.module.css';
+// import 'components/ColorPicker/ColorPicker.scss';
+import './ColorPicker.scss';
+import classNames from 'classnames';
+
 import React, { Component } from 'react';
 
 class ColorPicker extends Component {
@@ -8,13 +11,18 @@ class ColorPicker extends Component {
   setActiveIndex = index => {
     this.setState({ activeOptionIndex: index });
   };
+  // makeOptionClassName = (index, activeOptionIndex) => {
+  //   return classNames('ColorPickerOption', {
+  //     ColorPickerActive: index === activeOptionIndex,
+  //   });
+  // };
   render() {
     const { options } = this.props;
     const { activeOptionIndex } = this.state;
     const { label } = options[this.state.activeOptionIndex];
     return (
-      <div className={s.ColorPicker}>
-        <h1 className={s.ColorPickerTitle}>ColorPicker</h1>
+      <div className="ColorPicker">
+        <h1 className="ColorPickerTitle">ColorPicker</h1>
         <p>Выбран цвет:{label}</p>
         <div>
           {options.map((option, index) => {
@@ -23,9 +31,12 @@ class ColorPicker extends Component {
                 key={option.color}
                 style={{ backgroundColor: option.color }}
                 className={
-                  index === activeOptionIndex
-                    ? s.ColorPickerActive
-                    : s.ColorPickerOption
+                  classNames('ColorPickerOption', {
+                    ColorPickerActive: index === activeOptionIndex,
+                  })
+                  // index === activeOptionIndex
+                  //   ? 'ColorPickerOption ColorPickerActive'
+                  //   : 'ColorPickerOption'
                 }
                 onClick={() => {
                   this.setActiveIndex(index);
