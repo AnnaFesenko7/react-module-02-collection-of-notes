@@ -10,6 +10,17 @@
   padding: 20px;
   border: 2px solid $accent-color;
 }
-.totalList--text {
+.totalList__text {
   margin-right: 10px;
+}
+
+.totalList__button {
+  width: 150px;
+  height: 30px;
+  background-color: $accent-color;
+  color: #fff;
+  display: block;
+  border-radius: 50px;
+
+  text-align: center;
 }

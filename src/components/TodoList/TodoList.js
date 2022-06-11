@@ -1,4 +1,4 @@
-import './TodoList.scss';
+import 'components/TodoList/_TodoList.scss';
 import React, { Component } from 'react';
 
 class TodoList extends Component {
@@ -26,8 +26,14 @@ class TodoList extends Component {
               checked={completed}
               onChange={() => onToggleCompleted(id)}
             />
-            <p className="totalList--text">{text}</p>
-            <button onClick={() => onDeleteTodo(id)}>Удалить</button>
+            <p className="totalList__text">{text}</p>
+            <button
+              type="button"
+              className="totalList__button"
+              onClick={() => onDeleteTodo(id)}
+            >
+              Удалить
+            </button>
           </li>
         ))}
       </ul>

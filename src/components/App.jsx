@@ -4,14 +4,32 @@ import Container from './Container/Container';
 import TodoList from 'components/TodoList';
 import initialTodos from 'todos.json';
 import Form from './Form/Form';
-
+import Modal from 'components/Modal';
+import Clock from './Clock/Clock';
 import ColorPicker from 'components/ColorPicker';
 import options from 'components/ColorPicker/ColorPickerOptions.json';
+import IconButton from 'components/IconButton';
+import { ReactComponent as Icon } from '../icons/plus.svg';
 
 export default class App extends Component {
   state = {
     todos: initialTodos,
+    showModal: false,
+    showTimer: true,
   };
+  componentDidMount() {
+    const prevTodos = localStorage.getItem('todos');
+    const parsTodos = JSON.parse(prevTodos);
+    if (parsTodos) {
+      this.setState({ todos: parsTodos });
+    }
+  }
+  componentDidUpdate(prevState) {
+    if (prevState.todos !== this.state.todos) {
+      localStorage.setItem('todos', JSON.stringify(this.state.todos));
+    }
+  }
+
   deleteTodo = todoId => {
     this.setState(prevState => {
       return { todos: prevState.todos.filter(todo => todo.id !== todoId) };
@@ -38,8 +56,20 @@ export default class App extends Component {
     }));
   };
 
+  toggleModal = () => {
+    this.setState(prevState => ({
+      showModal: !prevState.showModal,
+    }));
+    console.log(this.state.showModal);
+  };
+  toggleTimer = () => {
+    this.setState(prevState => ({
+      showTimer: !prevState.showTimer,
+    }));
+  };
+
   render() {
-    const { todos } = this.state;
+    const { todos, showModal, showTimer } = this.state;
     // const completedTodos = todos.filter(todo => todo.completed);
     const completedTodos = todos.reduce(
       (acc, todo) => (todo.completed ? acc + 1 : acc),
@@ -61,30 +91,62 @@ export default class App extends Component {
           <ColorPicker options={options} />
         </div>
 
-        <Container>
-          <Form onSubmit={this.formSubmitHandler} />
-        </Container>
         <div
           style={{
             height: '100vh',
             display: 'flex',
-            flexDirection: 'column',
             justifyContent: 'center',
+            flexDirection: 'column',
             alignItems: 'center',
             fontSize: 18,
             color: '#010101',
           }}
         >
-          <div>
-            <p>Общее кол-во : {todos.length}</p>
-            <p>Кол-во выполненных : {completedTodos}</p>
-          </div>
-          <TodoList
-            todos={todos}
-            onDeleteTodo={this.deleteTodo}
-            onToggleCompleted={this.ToggleCompleted}
-          />
+          <button onClick={this.toggleTimer} type="button">
+            Открыть/закрыть таймер
+          </button>
+          {showTimer && <Clock onClose={this.toggleTimer} />}
         </div>
+
+        <Container>
+          <IconButton
+            aria-label="Добавить todo"
+            onClick={this.toggleModal}
+            type="button"
+          >
+            <Icon width="40" height="40" fill="white" />
+          </IconButton>
+          {showModal && (
+            <Modal>
+              <Form
+                onSubmit={this.formSubmitHandler}
+                onClose={this.toggleModal}
+              />
+            </Modal>
+          )}
+
+          <div
+            style={{
+              // height: '100vh',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              fontSize: 18,
+              color: '#010101',
+            }}
+          >
+            <div>
+              <p>Общее кол-во : {todos.length}</p>
+              <p>Кол-во выполненных : {completedTodos}</p>
+            </div>
+            <TodoList
+              todos={todos}
+              onDeleteTodo={this.deleteTodo}
+              onToggleCompleted={this.ToggleCompleted}
+            />
+          </div>
+        </Container>
       </div>
     );
   }

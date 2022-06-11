@@ -1,4 +1,3 @@
-// import 'components/ColorPicker/ColorPicker.scss';
 import './ColorPicker.scss';
 import classNames from 'classnames';
 

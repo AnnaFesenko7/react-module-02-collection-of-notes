@@ -1,0 +1,13 @@
+.icon__button {
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  background-color: teal;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
