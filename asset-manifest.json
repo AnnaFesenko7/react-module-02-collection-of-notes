@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/react-module-02-collection-of-notes/static/css/main.30575e3f.css",
-    "main.js": "/react-module-02-collection-of-notes/static/js/main.21c0673a.js",
+    "main.css": "/react-module-02-collection-of-notes/static/css/main.a131b2fd.css",
+    "main.js": "/react-module-02-collection-of-notes/static/js/main.4ad0dcf5.js",
     "index.html": "/react-module-02-collection-of-notes/index.html",
-    "main.30575e3f.css.map": "/react-module-02-collection-of-notes/static/css/main.30575e3f.css.map",
-    "main.21c0673a.js.map": "/react-module-02-collection-of-notes/static/js/main.21c0673a.js.map"
+    "static/media/plus.svg": "/react-module-02-collection-of-notes/static/media/plus.7c09677bf9581270ebdcbc2378667f39.svg",
+    "main.a131b2fd.css.map": "/react-module-02-collection-of-notes/static/css/main.a131b2fd.css.map",
+    "main.4ad0dcf5.js.map": "/react-module-02-collection-of-notes/static/js/main.4ad0dcf5.js.map"
   },
   "entrypoints": [
-    "static/css/main.30575e3f.css",
-    "static/js/main.21c0673a.js"
+    "static/css/main.a131b2fd.css",
+    "static/js/main.4ad0dcf5.js"
   ]
 }
